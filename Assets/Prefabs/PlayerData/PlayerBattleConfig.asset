@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f85e633d7b89d4492f652e0ee59b1f, type: 3}
+  m_Name: PlayerBattleConfig
+  m_EditorClassIdentifier: 
+  potential: 0
+  hp: 0
+  mp: 0
+  selfHealing: 0
+  qi: 0
+  internalForce: 0
+  eyesight: 0
+  hearing: 0
+  swordBreath: 0
+  bodilyMovement: 0
+  charm: 0
+  fate: 0
+  fingerForce: 0
+  tough: 0
+  physique: 0
+  breath: 0
+  acupoint: 0
+  concentrate: 0
+  antitoxic: 0
+  debuffTrauma: 0
+  debuffInternalInjury: 0
+  debuffVertigo: 0
+  debuffAcupointHit: 0
+  debuffHorror: 0
+  debuffToxic: 0
