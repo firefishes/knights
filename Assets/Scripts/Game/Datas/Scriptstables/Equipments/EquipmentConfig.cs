@@ -34,6 +34,26 @@ namespace Knights.Game
         public int endurance = 0;
         /// <summary>耐力最大值</summary>
         public int enduranceMax = 0;
+
+        public virtual void InitEquipmentConfig(ref JSONObject source)
+        {
+            InitItem(ref source);
+
+            source.GetField(ref equipType, "equip_type");
+            source.GetField(ref atk, "atk");
+            source.GetField(ref def, "def");
+            source.GetField(ref strenthen, "strenthen");
+            source.GetField(ref assistQi, "assist_qi");
+            source.GetField(ref frosty, "frosty");
+            source.GetField(ref elegant, "elegant");
+            source.GetField(ref fingerForce, "finger_force");
+            source.GetField(ref antitoxic, "antitoxic");
+            source.GetField(ref enduranceMax, "endurance_max");
+
+            endurance = enduranceMax;
+
+        }
+        
     }
 
 }

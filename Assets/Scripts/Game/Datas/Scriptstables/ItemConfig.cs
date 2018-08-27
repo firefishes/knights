@@ -15,6 +15,14 @@ namespace Knights.Game
 
         protected string mName;
 
+        public void InitItem(ref JSONObject source)
+        {
+            SetRaw(ref source);
+
+            mRawJSON.GetField(ref price, "price");
+            mRawJSON.GetField(ref nameID, "name_id");
+        }
+
         public override IScriptableItem Copy()
         {
             ItemConfig config = GetNewConfig() as ItemConfig;

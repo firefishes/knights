@@ -14,6 +14,9 @@
         {
             base.InitModel(ref source);
 
+            mEquipmentConfig
+
+            mNameID = mEquipmentConfig.nameID;
             mName = mEquipmentConfig.name;
         }
 
