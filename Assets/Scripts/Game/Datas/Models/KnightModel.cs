@@ -31,6 +31,13 @@ namespace Knights.Game
 
         }
 
+        protected override void CopyRaw()
+        {
+            base.CopyRaw();
+
+
+        }
+
         override public void InitModel(ref JSONObject source)
         {
 

@@ -8,6 +8,7 @@ namespace Knights.Game
     [CreateAssetMenu(menuName = "Knights/Game/Assets/KnightBattleConfig")]
     public class KnightBattleConfig : ScriptableItem
     {
+
         /// <summary>潜力</summary>
         public float potential;
         /// <summary>命</summary>
@@ -59,36 +60,50 @@ namespace Knights.Game
         /// <summary>中毒</summary>
         public float debuffToxic = 0;
 
+        public bool IsCopyRaw { set; get; }
+
         public override IScriptableItem Copy()
         {
             IScriptableItem config = base.Copy();
             KnightBattleConfig target = config as KnightBattleConfig;
 
-            target.potential = potential;
-            target.hp = hp;
-            target.mp = mp;
-            target.selfHealing = selfHealing;
-            target.qi = qi;
-            target.internalForce = internalForce;
-            target.eyesight = eyesight;
-            target.hearing = hearing;
-            target.swordBreath = swordBreath;
-            target.bodilyMovement = bodilyMovement;
-            target.charm = charm;
-            target.fate = fate;
-            target.fingerForce = fingerForce;
-            target.tough = tough;
-            target.physique = physique;
-            target.breath = breath;
-            target.acupoint = acupoint;
-            target.concentrate = concentrate;
-            target.antitoxic = antitoxic;
-            target.debuffTrauma = debuffTrauma;
-            target.debuffInternalInjury = debuffInternalInjury;
-            target.debuffVertigo = debuffVertigo;
-            target.debuffAcupointHit = debuffAcupointHit;
-            target.debuffHorror = debuffHorror;
-            target.debuffToxic = debuffToxic;
+            if(IsCopyRaw)
+            {
+                JSONObject battleBaseSource = mRawJSON["battle_base"];
+                target.InitBatteBaseConfig(ref battleBaseSource);
+
+                JSONObject battleBuffSource = mRawJSON["battle_buff"];
+                target.InitBatteBaseBuff(ref battleBuffSource);
+                
+            }
+            else
+            {
+                target.potential = potential;
+                target.hp = hp;
+                target.mp = mp;
+                target.selfHealing = selfHealing;
+                target.qi = qi;
+                target.internalForce = internalForce;
+                target.eyesight = eyesight;
+                target.hearing = hearing;
+                target.swordBreath = swordBreath;
+                target.bodilyMovement = bodilyMovement;
+                target.charm = charm;
+                target.fate = fate;
+                target.fingerForce = fingerForce;
+                target.tough = tough;
+                target.physique = physique;
+                target.breath = breath;
+                target.acupoint = acupoint;
+                target.concentrate = concentrate;
+                target.antitoxic = antitoxic;
+                target.debuffTrauma = debuffTrauma;
+                target.debuffInternalInjury = debuffInternalInjury;
+                target.debuffVertigo = debuffVertigo;
+                target.debuffAcupointHit = debuffAcupointHit;
+                target.debuffHorror = debuffHorror;
+                target.debuffToxic = debuffToxic;
+            }
 
             return config;
         }
