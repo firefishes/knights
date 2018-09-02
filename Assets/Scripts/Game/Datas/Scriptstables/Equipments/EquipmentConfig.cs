@@ -36,22 +36,6 @@ namespace Knights.Game
         /// <summary>耐力最大值</summary>
         public float enduranceMax = 0;
 
-        public int ID
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public int ModelType
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public virtual void InitEquipmentConfig(ref JSONObject source)
         {
             InitItem(ref source);
@@ -72,14 +56,9 @@ namespace Knights.Game
             endurance = enduranceMax;
 
         }
-
-        public void InitModel(ref JSONObject source)
-        {
-            throw new NotImplementedException();
-        }
     }
 
-    public interface IEquipmentConfig : INamableItem
+    public interface IEquipmentConfig : INamableItem, IScriptableItem
     {
         void InitEquipmentConfig(ref JSONObject source);
     }

@@ -16,6 +16,12 @@ namespace Knights.Game
         {
             base.InitModel(ref source);
 
+            InitEquipmentModel(ref source);
+        }
+
+        protected virtual void InitEquipmentModel(ref JSONObject source)
+        {
+
             mEquipmentConfig = ScriptableObject.CreateInstance<EquipmentConfig>() as IEquipmentConfig;
 
             mEquipmentConfig.InitEquipmentConfig(ref source);
@@ -25,7 +31,7 @@ namespace Knights.Game
         {
             get
             {
-                return (mEquipmentConfig != null) ? mEquipmentConfig.id : base.ID;
+                return (mEquipmentConfig != null) ? mEquipmentConfig.GetItemID() : base.ID;
             }
         }
 

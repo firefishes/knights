@@ -6,7 +6,7 @@
     public class ItemModel : GameModel
     {
 
-        protected IScriptableItem mItemConfig;
+        protected IItemConfig mItemConfig;
 
         public ItemModel()
         {

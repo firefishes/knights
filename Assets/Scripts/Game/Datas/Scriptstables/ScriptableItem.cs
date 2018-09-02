@@ -14,10 +14,11 @@ namespace Knights.Game
 
         protected void SetRaw(ref JSONObject raw)
         {
-            if(mRawJSON == null)
+            if (mRawJSON == null)
             {
                 mRawJSON = raw;
             }
+            mRawJSON.GetField(ref id, "id");
         }
 
         public virtual IScriptableItem Copy()

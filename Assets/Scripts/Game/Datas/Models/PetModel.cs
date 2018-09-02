@@ -6,23 +6,25 @@ namespace Knights.Game
 {
     public class PetModel : EquipmentModel
     {
-        private PetConfig mPetConfig;
 
         public PetModel()
         {
 
         }
 
-        public override void InitModel(ref JSONObject source)
+        protected override void InitEquipmentModel(ref JSONObject source)
         {
-            base.InitModel(ref source);
+            base.InitEquipmentModel(ref source);
+
+            mEquipmentConfig = ScriptableObject.CreateInstance<PetConfig>();
+            mEquipmentConfig.InitEquipmentConfig(ref source);
         }
 
         public PetConfig PetConfigCompose
         {
             get
             {
-                return mPetConfig;
+                return mEquipmentConfig as PetConfig;
             }
         }
 

@@ -12,10 +12,8 @@ namespace Knights.Game
 
         }
 
-        public override void InitModel(ref JSONObject source)
+        protected override void InitEquipmentModel(ref JSONObject source)
         {
-            base.InitModel(ref source);
-
             mEquipmentConfig = ScriptableObject.CreateInstance<WeaponConfig>();
             mEquipmentConfig.InitEquipmentConfig(ref source);
         }

@@ -43,6 +43,7 @@ namespace Knights.Game
 
         override public void InitModel(ref JSONObject source)
         {
+            base.InitModel(ref source);
 
             if(!mIsPlayer)
             {

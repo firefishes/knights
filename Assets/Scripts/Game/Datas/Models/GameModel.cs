@@ -31,7 +31,6 @@ namespace Knights.Game
             {
                 mSbd.Length = 0;
             }
-            mName = string.Empty;
             mSbd = null;
         }
 
@@ -71,6 +70,7 @@ namespace Knights.Game
 
         public virtual void InitModel(ref JSONObject source)
         {
+            mRawCopy = source;
             //source.GetField(ref mNameID, "name_id");
             //source.GetField(ref mName, "name");
         }

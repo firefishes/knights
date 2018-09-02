@@ -13,7 +13,24 @@ namespace Knights.Game
         /// <summary>毒</summary>
         public float toxin;
         /// <summary>喂养</summary>
-        public int feed;
+        public int feedID;
+
+        public override void InitEquipmentConfig(ref JSONObject source)
+        {
+            base.InitEquipmentConfig(ref source);
+
+            JSONObject petRaw = source["pet"];
+            InitPetConfig(ref petRaw);
+        }
+
+        private void InitPetConfig(ref JSONObject source)
+        {
+            float value = 0;
+            int valueInt = 0;
+            DataUtils.SetConfigValue(ref source, ref value, ref medicine, "medicine");
+            DataUtils.SetConfigValue(ref source, ref value, ref toxin, "toxin");
+            DataUtils.SetConfigValue(ref source, ref valueInt, ref feedID, "feed_id");
+        }
     }
 
 }

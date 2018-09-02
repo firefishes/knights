@@ -1,24 +1,26 @@
-﻿namespace Knights.Game
+﻿using UnityEngine;
+
+namespace Knights.Game
 {
     public class HiddenWeaponModel : EquipmentModel
     {
-        private HiddenWeaponConfig mHiddenWeaponConfig;
-
         public HiddenWeaponModel()
         {
 
         }
 
-        public override void InitModel(ref JSONObject source)
+        protected override void InitEquipmentModel(ref JSONObject source)
         {
-            base.InitModel(ref source);
+            mEquipmentConfig = ScriptableObject.CreateInstance<HiddenWeaponConfig>() as IEquipmentConfig;
+
+            mEquipmentConfig.InitEquipmentConfig(ref source);
         }
 
         public HiddenWeaponConfig HiddenWeaponCompose
         {
             get
             {
-                return mHiddenWeaponConfig;
+                return mEquipmentConfig as HiddenWeaponConfig;
             }
         }
 
