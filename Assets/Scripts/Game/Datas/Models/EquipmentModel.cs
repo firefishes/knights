@@ -1,9 +1,11 @@
-﻿namespace Knights.Game
+﻿using UnityEngine;
+
+namespace Knights.Game
 {
     public class EquipmentModel : GameModel
     {
 
-        private EquipmentConfig mEquipmentConfig;
+        protected IEquipmentConfig mEquipmentConfig;
 
         public override void Dispose()
         {
@@ -14,10 +16,9 @@
         {
             base.InitModel(ref source);
 
-            mEquipmentConfig
+            mEquipmentConfig = ScriptableObject.CreateInstance<EquipmentConfig>() as IEquipmentConfig;
 
-            mNameID = mEquipmentConfig.nameID;
-            mName = mEquipmentConfig.name;
+            mEquipmentConfig.InitEquipmentConfig(ref source);
         }
 
         public override int ID
@@ -36,11 +37,27 @@
             }
         }
 
-        public EquipmentConfig EquipmentCompose
+        public IEquipmentConfig EquipmentCompose
         {
             get
             {
                 return mEquipmentConfig;
+            }
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return (mEquipmentConfig != null) ? mEquipmentConfig.Name : base.Name;
+            }
+        }
+
+        public override int NameID
+        {
+            get
+            {
+                return (mEquipmentConfig != null) ? mEquipmentConfig.NameID : base.NameID;
             }
         }
     }

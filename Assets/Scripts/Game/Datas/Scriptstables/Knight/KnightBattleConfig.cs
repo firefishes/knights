@@ -69,12 +69,7 @@ namespace Knights.Game
 
             if(IsCopyRaw)
             {
-                JSONObject battleBaseSource = mRawJSON["battle_base"];
-                target.InitBatteBaseConfig(ref battleBaseSource);
-
-                JSONObject battleBuffSource = mRawJSON["battle_buff"];
-                target.InitBatteBaseBuff(ref battleBuffSource);
-                
+                target.InitBattleConfig(ref mRawJSON);
             }
             else
             {
@@ -113,7 +108,15 @@ namespace Knights.Game
             return CreateInstance<KnightBattleConfig>();
         }
 
-        public void InitBatteBaseBuff(ref JSONObject source)
+        public void InitBattleConfig(ref JSONObject source)
+        {
+            SetRaw(ref source);
+
+            InitBatteBaseBuff(ref source);
+            InitBatteBaseConfig(ref source);
+        }
+
+        private void InitBatteBaseBuff(ref JSONObject source)
         {
 
             JSONObject battleBuffSource = source["battle_buff"];
@@ -122,20 +125,20 @@ namespace Knights.Game
 
             float value = 0f;
             battleBuffSource.GetField(ref value, "tough");
-            tough = value / 1000;
+            tough = value * 1000;
             battleBuffSource.GetField(ref value, "physique");
-            physique = value / 1000;
+            physique = value * 1000;
             battleBuffSource.GetField(ref value, "breath");
-            breath = value / 1000;
+            breath = value * 1000;
             battleBuffSource.GetField(ref value, "acupoint");
-            acupoint = value / 1000;
+            acupoint = value * 1000;
             battleBuffSource.GetField(ref value, "concentrate");
-            concentrate = value / 1000;
+            concentrate = value * 1000;
             battleBuffSource.GetField(ref value, "antitoxic");
-            antitoxic = value / 1000;
+            antitoxic = value * 1000;
         }
 
-        public void InitBatteBaseConfig(ref JSONObject source)
+        private void InitBatteBaseConfig(ref JSONObject source)
         {
             JSONObject battleBaseSource = source["battle_base"];
 
@@ -143,29 +146,29 @@ namespace Knights.Game
 
             float value = 0;
             battleBaseSource.GetField(ref value, "potential");
-            potential = value / 1000;
+            potential = value * 1000;
             battleBaseSource.GetField(ref value, "hp");
-            hp = value / 1000;
+            hp = value * 1000;
             battleBaseSource.GetField(ref value, "mp");
-            mp = value / 1000;
+            mp = value * 1000;
             battleBaseSource.GetField(ref value, "self_healing");
-            selfHealing = value / 1000;
+            selfHealing = value * 1000;
             battleBaseSource.GetField(ref value, "qi");
-            qi = value / 1000;
+            qi = value * 1000;
             battleBaseSource.GetField(ref value, "eyesight");
-            eyesight = value / 1000;
+            eyesight = value * 1000;
             battleBaseSource.GetField(ref value, "hearing");
-            hearing = value / 1000;
+            hearing = value * 1000;
             battleBaseSource.GetField(ref value, "sword_breath");
-            swordBreath = value / 1000;
+            swordBreath = value * 1000;
             battleBaseSource.GetField(ref value, "bodily_movement");
-            bodilyMovement = value / 1000;
+            bodilyMovement = value * 1000;
             battleBaseSource.GetField(ref value, "charm");
-            charm = value / 1000;
+            charm = value * 1000;
             battleBaseSource.GetField(ref value, "fate");
-            fate = value / 1000;
+            fate = value * 1000;
             battleBaseSource.GetField(ref value, "finger_force");
-            fingerForce = value / 1000;
+            fingerForce = value * 1000;
         }
     }
 

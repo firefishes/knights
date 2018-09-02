@@ -7,8 +7,6 @@ namespace Knights.Game
     public class WeaponModel : EquipmentModel
     {
 
-        private WeaponConfig mWeaponConfig;
-
         public WeaponModel()
         {
 
@@ -18,14 +16,15 @@ namespace Knights.Game
         {
             base.InitModel(ref source);
 
-
+            mEquipmentConfig = ScriptableObject.CreateInstance<WeaponConfig>();
+            mEquipmentConfig.InitEquipmentConfig(ref source);
         }
 
         public WeaponConfig WeaponCompose
         {
             get
             {
-                return mWeaponConfig;
+                return mEquipmentConfig as WeaponConfig;
             }
         }
 

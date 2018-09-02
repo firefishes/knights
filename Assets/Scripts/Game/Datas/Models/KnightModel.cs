@@ -14,6 +14,9 @@ namespace Knights.Game
         /// <summary>战斗数据</summary>
         protected KnightBattleConfig mBattleConfig;
 
+        private int mNameID;
+        private string mName;
+
         public KnightModel()
         {
 
@@ -49,8 +52,7 @@ namespace Knights.Game
                 
                 mBaseConfig.InitBaseConfig(ref source);
                 mMeridianConfig.InitMeridianConfig(ref source);
-                mBattleConfig.InitBatteBaseConfig(ref source);
-                mBattleConfig.InitBatteBaseBuff(ref source);
+                mBattleConfig.InitBattleConfig(ref source);
 
                 mNameID = -1;
                 mName = mBaseConfig.firstName.Append(ref mSbd, mBaseConfig.secendName);
@@ -102,6 +104,22 @@ namespace Knights.Game
             get
             {
                 return Consts.MODEL_KNIGHT;
+            }
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return mName;
+            }
+        }
+
+        public override int NameID
+        {
+            get
+            {
+                return base.NameID;
             }
         }
     }

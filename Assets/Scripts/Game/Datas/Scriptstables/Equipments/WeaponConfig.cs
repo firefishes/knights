@@ -31,9 +31,39 @@ namespace Knights.Game
         /// <summary>封锁</summary>
         public float blockade = 0;
         /// <summary>锻铸</summary>
-        public int forgedCasting = 0;
+        public float forgedCasting = 0;
         /// <summary>坚利</summary>
-        public int firm = 0;
+        public float firm = 0;
+
+        public override void InitEquipmentConfig(ref JSONObject source)
+        {
+            base.InitEquipmentConfig(ref source);
+
+            InitWeaponConfig(ref source);
+
+        }
+
+        private void InitWeaponConfig(ref JSONObject source)
+        {
+            JSONObject weaponRaw = source["weapon"];
+            
+            float value = 0;
+            int valueInt = 0;
+
+            DataUtils.SetConfigValue(ref weaponRaw, ref isDoubleHolding, "is_double_holding");
+            DataUtils.SetConfigValue(ref weaponRaw, ref valueInt, ref weaponType, "weapon_type");
+            DataUtils.SetConfigValue(ref weaponRaw, ref valueInt, ref stuffType, "stuff_type");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref sharp, "sharp");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref heavy, "heavy");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref precise, "precise");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref strange, "strange");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref toxic, "toxic");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref shoveAside, "shove_aside");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref pliable, "pliable");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref blockade, "blockade");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref forgedCasting, "forge_casting");
+            DataUtils.SetConfigValue(ref weaponRaw, ref value, ref firm, "firm");
+        }
     }
 
 }

@@ -52,7 +52,9 @@ namespace Knights.Game
     public interface INamableItem
     {
         void SetName(ref string value);
+        void SetNameID(int value);
         string Name { get; }
+        int NameID { get; }
     }
 
 }

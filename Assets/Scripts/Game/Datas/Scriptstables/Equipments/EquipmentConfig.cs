@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Knights.Game
 {
@@ -6,7 +7,7 @@ namespace Knights.Game
     /// 装备数据
     /// </summary>
     [CreateAssetMenu(menuName = "Knights/Game/Assets/EquipmentConfig")]
-    public class EquipmentConfig : ItemConfig
+    public class EquipmentConfig : ItemConfig, IEquipmentConfig
     {
         /// <summary>装备部位</summary>
         public int equipType = 0;
@@ -31,29 +32,55 @@ namespace Knights.Game
         /// <summary>抗毒</summary>
         public float antitoxic = 0;
         /// <summary>当前耐力</summary>
-        public int endurance = 0;
+        public float endurance = 0;
         /// <summary>耐力最大值</summary>
-        public int enduranceMax = 0;
+        public float enduranceMax = 0;
+
+        public int ID
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int ModelType
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public virtual void InitEquipmentConfig(ref JSONObject source)
         {
             InitItem(ref source);
 
+            float value = 0;
             source.GetField(ref equipType, "equip_type");
-            source.GetField(ref atk, "atk");
-            source.GetField(ref def, "def");
-            source.GetField(ref strenthen, "strenthen");
-            source.GetField(ref assistQi, "assist_qi");
-            source.GetField(ref frosty, "frosty");
-            source.GetField(ref elegant, "elegant");
-            source.GetField(ref fingerForce, "finger_force");
-            source.GetField(ref antitoxic, "antitoxic");
-            source.GetField(ref enduranceMax, "endurance_max");
+
+            DataUtils.SetConfigValue(ref source, ref value, ref atk, "atk");
+            DataUtils.SetConfigValue(ref source, ref value, ref def, "def");
+            DataUtils.SetConfigValue(ref source, ref value, ref strenthen, "strenthen");
+            DataUtils.SetConfigValue(ref source, ref value, ref assistQi, "assist_qi");
+            DataUtils.SetConfigValue(ref source, ref value, ref frosty, "frosty");
+            DataUtils.SetConfigValue(ref source, ref value, ref elegant, "elegant");
+            DataUtils.SetConfigValue(ref source, ref value, ref fingerForce, "finger_force");
+            DataUtils.SetConfigValue(ref source, ref value, ref antitoxic, "antitoxic");
+            DataUtils.SetConfigValue(ref source, ref value, ref enduranceMax, "endurance_max");
 
             endurance = enduranceMax;
 
         }
-        
+
+        public void InitModel(ref JSONObject source)
+        {
+            throw new NotImplementedException();
+        }
     }
 
+    public interface IEquipmentConfig : INamableItem
+    {
+        void InitEquipmentConfig(ref JSONObject source);
+    }
 }

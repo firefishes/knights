@@ -2,6 +2,7 @@
 using ShipDock.Framework.Interfaces;
 using ShipDock.Framework.ObjectPool;
 using System.Text;
+using System;
 
 namespace Knights.Game
 {
@@ -14,10 +15,8 @@ namespace Knights.Game
         string Name { get; }
     }
     
-    public class GameModel : Model, IGameModel, IPoolItem
+    public class GameModel : Model, IGameModel, IPoolItem, INamableItem
     {
-        protected int mNameID;
-        protected string mName;
         protected StringBuilder mSbd;
         protected JSONObject mRawCopy;
 
@@ -54,8 +53,8 @@ namespace Knights.Game
         {
             CheckRawCopy(ref mRawCopy);
 
-            mRawCopy.AddField("name_id", mNameID);
-            mRawCopy.AddField("name", mName);
+            //mRawCopy.AddField("name_id", mNameID);
+            //mRawCopy.AddField("name", mName);
         }
 
         protected void CheckRawCopy(ref JSONObject rawJSON)
@@ -72,13 +71,23 @@ namespace Knights.Game
 
         public virtual void InitModel(ref JSONObject source)
         {
-            source.GetField(ref mNameID, "name_id");
-            source.GetField(ref mName, "name");
+            //source.GetField(ref mNameID, "name_id");
+            //source.GetField(ref mName, "name");
         }
 
         public override void Dispose()
         {
             mRawCopy = null;
+        }
+
+        public void SetName(ref string value)
+        {
+            //mName = value;
+        }
+
+        public void SetNameID(int value)
+        {
+            //mNameID = value;
         }
 
         public override int ModelType
@@ -101,7 +110,7 @@ namespace Knights.Game
         {
             get
             {
-                return mNameID;
+                return int.MaxValue;
             }
         }
 
@@ -109,7 +118,7 @@ namespace Knights.Game
         {
             get
             {
-                return mName;
+                return string.Empty;
             }
         }
     }

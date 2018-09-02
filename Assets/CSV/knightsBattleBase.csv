@@ -1,5 +1,5 @@
 ﻿侠客id，始于10000,潜力,命,气,复元,运功,观察,听觉,剑气,身法,魅力,命运,指力
-int,int,string,string,string,int,int,int,int,int,int,int,int
+int,float,float,float,float,float,float,float,float,float,float,float,float
 id,potential,hp,mp,self_healing,qi,eyesight,hearing,sword_breath,bodily_movement,charm,fate,finger_force
 10000,,,,,,,,,,,,
 10001,,,,,,,,,,,,

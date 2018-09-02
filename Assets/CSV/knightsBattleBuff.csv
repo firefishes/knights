@@ -1,5 +1,5 @@
 ﻿侠客id，始于10000,横练,体魄,调息,护穴,定力,抗毒
-int,int,int,int,int,int,int
+int,float,float,float,float,float,float
 id,tough,physique,breath,acupoint,concentrate,antitoxic
 10000,,,,,,
 10001,,,,,,

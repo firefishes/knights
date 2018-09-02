@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Knights.Game
 {
@@ -41,11 +42,24 @@ namespace Knights.Game
             mName = value;
         }
 
+        public void SetNameID(int value)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Name
         {
             get
             {
                 return mName;
+            }
+        }
+
+        public int NameID
+        {
+            get
+            {
+                return nameID;
             }
         }
     }

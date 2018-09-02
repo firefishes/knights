@@ -36,10 +36,10 @@ namespace Knights.Game
             source.GetField(ref thirdName, "thr_name");
             source.GetField(ref sexuality, "sexuality");
 
-            source.GetField(ref value, "evilOrJustice");
-            evilOrJustice = value / 1000;
+            source.GetField(ref value, "evil_justice");
+            evilOrJustice = value * 1000;
             source.GetField(ref value, "prestige");
-            prestige = value / 1000;
+            prestige = value * 1000;
             source.GetField(ref master, "master");
             source.GetField(ref sect, "sect");
         }
