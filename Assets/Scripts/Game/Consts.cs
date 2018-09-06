@@ -81,6 +81,7 @@ namespace Knights.Game
         public const int MODEL_BLUEPRINT = 6;
         public const int MODEL_ITEM = 7;
         public const int MODEL_MINE = 8;
+        public const int MODEL_MARTIAL_ART = 8;
 
         public const int CONTROLLER_KNIGHTS = 2001;
         public const int CONTROLLER_BATTLE = 2002;

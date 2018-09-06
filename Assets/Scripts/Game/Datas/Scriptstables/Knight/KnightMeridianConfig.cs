@@ -41,19 +41,7 @@ namespace Knights.Game
                 data = new KnightMeridian();
             }
 
-            float value = 0;
-            source.GetField(ref value, "meridian");
-            data.meridian = value * 1000;
-            source.GetField(ref value, "yin");
-            data.meridianYin = value * 1000;
-            source.GetField(ref value, "yang");
-            data.meridianYang = value * 1000;
-            source.GetField(ref value, "hard");
-            data.meridianHard = value * 1000;
-            source.GetField(ref value, "soft");
-            data.meridianSoft = value * 1000;
-            source.GetField(ref value, "toxin");
-            data.meridianToxin = value * 1000;
+            DataUtils.SetKnightMeridian(ref source, ref data);
         }
     }
     

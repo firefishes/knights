@@ -25,7 +25,7 @@
             }
         }
 
-        public IScriptableItem ItemConfigCompose
+        public IItemConfig ItemConfigCompose
         {
             get
             {

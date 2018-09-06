@@ -2,14 +2,14 @@
 
 namespace Knights.Game
 {
-    public class MineModel : ItemModel
+    public class MineModel : MeansModel
     {
         public override void InitModel(ref JSONObject source)
         {
             base.InitModel(ref source);
 
-            MineConfig mineConfig = ScriptableObject.CreateInstance<MineConfig>();
-            mItemConfig = mineConfig;
+            float value = 0;
+            DataUtils.SetConfigValue(ref source, ref value, ref mMeansConfig.mine, "mine");
         }
 
         public override int ModelType

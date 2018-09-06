@@ -6,9 +6,13 @@ namespace Knights.Game
     /// 书籍数据
     /// </summary>
     [CreateAssetMenu(menuName = "Knights/Game/Assets/BookConfig")]
-    public class BookConfig : ItemConfig
+    public class BookConfig : ScriptableItem
     {
-        public MartialArtsConfig martialArtsConfig;
+        /// <summary>武学id</summary>
+        public int martialArtID;
+        /// <summary>载体</summary>
+        public int carrier;
+        
     }
 
 }

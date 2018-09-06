@@ -7,7 +7,7 @@ namespace Knights.Game
     /// 物品配置
     /// </summary>
     [CreateAssetMenu(menuName = "Knights/Game/Assets/ItemConfig")]
-    public class ItemConfig : ScriptableItem, INamableItem, IItemConfig
+    public class ItemConfig : ScriptableItem, IItemConfig
     {
         /// <summary>价值</summary>
         public int price = 0;
@@ -68,9 +68,10 @@ namespace Knights.Game
         }
     }
 
-    public interface IItemConfig : IScriptableItem
+    public interface IItemConfig : IScriptableItem, INamableItem
     {
         int GetPrice();
+        void InitItem(ref JSONObject source);
     }
 
 }
