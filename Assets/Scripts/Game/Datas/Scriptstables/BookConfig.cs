@@ -13,6 +13,14 @@ namespace Knights.Game
         /// <summary>载体</summary>
         public int carrier;
         
+        public void InitBookConfig(ref JSONObject source)
+        {
+            SetRaw(ref source);
+
+            int value = 0;
+            DataUtils.SetConfigValue(ref source, ref value, ref martialArtID, "martial_art_id");
+            DataUtils.SetConfigValue(ref source, ref value, ref carrier, "carrier");
+        }
     }
 
 }

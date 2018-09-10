@@ -15,9 +15,8 @@ namespace Knights.Game
 
             mItemConfig.InitItem(ref source);
 
-            int value = 0;
-            DataUtils.SetConfigValue(ref source, ref value, ref mBookConfig.martialArtID, "martial_art_id");
-            DataUtils.SetConfigValue(ref source, ref value, ref mBookConfig.carrier, "carrier");
+            JSONObject bookRaw = source["book"];
+            mBookConfig.InitBookConfig(ref bookRaw);
         }
     }
 
