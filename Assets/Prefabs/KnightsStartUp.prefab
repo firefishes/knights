@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 4681483070777254}
   - component: {fileID: 114092310605481034}
   - component: {fileID: 114724636598985590}
-  - component: {fileID: 114929025734997176}
   m_Layer: 0
   m_Name: KnightsStartUp
   m_TagString: Untagged
@@ -238,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5636421906ca4494193367043cf6820f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsIgnoreInController: 0
+  m_IsIgnoreInController: 0
   m_Controller: {fileID: 114905156229878716}
 --- !u!114 &114068201681575524
 MonoBehaviour:
@@ -251,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85be0fa181124ef4ba143c3780b61632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsIgnoreInController: 0
+  m_IsIgnoreInController: 0
   m_Controller: {fileID: 114816012969793890}
 --- !u!114 &114092310605481034
 MonoBehaviour:
@@ -264,8 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cac991e944e94408836fbddd904f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsStartUp: 1
   m_Application: {fileID: 114741411228451788}
-  m_SoundListComponent: {fileID: 114724636598985590}
 --- !u!114 &114128065360163026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,13 +288,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanCache: 1
-  m_IsDebug: 0
-  m_MaxLogLine: 10
-  m_FrameRate: 0
-  m_Local: 
-  m_ClientConfig: {fileID: 0}
-  m_DebugText: {fileID: 0}
-  m_MemText: {fileID: 0}
+  IsDebug: 0
+  DebugText: {fileID: 0}
+  memText: {fileID: 0}
+  MaxLogLine: 10
+  FrameRate: 0
+  Local: 
+  clientConfig: {fileID: 0}
 --- !u!114 &114258928305947606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914408e8235b97046b4f4aba28c15012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsIgnoreInController: 0
+  m_IsIgnoreInController: 0
   m_Controller: {fileID: 114816012969793890}
   m_SoundPrefab: {fileID: 114699295461210162, guid: 5346aea03b8f64a769e942a027358db1,
     type: 2}
@@ -358,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d72458f2c78b64eb8f8a71cb472c8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 0
   m_IsActiveInRun: 1
   m_IsInitInRun: 1
   m_Commands:
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d5f0ba3af827184fbe796e3869b210e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsIgnoreInController: 0
+  m_IsIgnoreInController: 0
   m_Controller: {fileID: 114816012969793890}
 --- !u!114 &114905156229878716
 MonoBehaviour:
@@ -389,22 +389,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ffe24ad8b357a04e981d59ffbdc9af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IsActive: 0
   m_IsActiveInRun: 1
   m_IsInitInRun: 1
   m_Commands:
   - {fileID: 114028659195996728}
   m_ControllerName: 0
---- !u!114 &114929025734997176
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581836477416832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 916c540939af4bc4b926c5fca5d91787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114954006658252566
 MonoBehaviour:
   m_ObjectHideFlags: 1
