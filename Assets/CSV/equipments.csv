@@ -1,5 +1,5 @@
 "装备id，始于20000	",名称id,价值,绰号,武术,护体,培固,助气,冷峻,轻巧,雅致,神秘,指力,抗毒,耐力
-int,int,int,int,int,int,int,int,int,int,int,int,int,int,int
+int,int,int,int,float,float,float,float,float,float,float,float,float,float,float
 "id	",name_id,price,equip_type,atk,def,strenthen,assist_qi,frosty,lightness,elegant,mystery,finger_force,antitoxic,endurance_max
 "20000														",,,,,,,,,,,,,,
 "20001														",,,,,,,,,,,,,,

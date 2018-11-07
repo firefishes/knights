@@ -1,4 +1,4 @@
-"武器id，对应装备id	",兵刃类型,质地,是否双持,锋锐,沉重,精准,诡异,剧毒,格挡,柔韧,封锁,锻铸,坚利
+"武器id，对应装备id	，始于20000",兵刃类型,质地,是否双持,锋锐,沉重,精准,诡异,剧毒,格挡,柔韧,封锁,锻铸,坚利
 "int	",int,int,bool,float,float,float,float,float,float,float,float,float,float
 id,weapon_type,stuff_type,is_double_holding,sharp,heavy,precise,strange,toxic,shove_aside,pliable,blockade,forge_casting,firm
 "20000														",,,,,,,,,,,,,

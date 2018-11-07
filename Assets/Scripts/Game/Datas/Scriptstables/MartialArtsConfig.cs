@@ -54,15 +54,15 @@ namespace Knights.Game
 
             DataUtils.SetConfigValue(ref source, ref valueInt, ref id, "id");
             DataUtils.SetConfigValue(ref source, ref valueInt, ref type, "type");
-            DataUtils.SetConfigValue(ref source, ref valueInt, ref levelMax, "levelMax");
-            DataUtils.SetConfigValue(ref source, ref valueInt, ref weaponType, "weaponType");
+            DataUtils.SetConfigValue(ref source, ref valueInt, ref levelMax, "level_max");
+            DataUtils.SetConfigValue(ref source, ref valueInt, ref weaponType, "weapon_type");
 
             DataUtils.SetConfigValue(ref source, ref value, ref atk, "atk");
             DataUtils.SetConfigValue(ref source, ref value, ref def, "def");
             DataUtils.SetConfigValue(ref source, ref value, ref ingenious, "ingenious");
             DataUtils.SetConfigValue(ref source, ref value, ref gait, "gait");
             DataUtils.SetConfigValue(ref source, ref value, ref tactical, "tactical");
-            DataUtils.SetConfigValue(ref source, ref value, ref qiCost, "qiCost");
+            DataUtils.SetConfigValue(ref source, ref value, ref qiCost, "qi_cost");
             DataUtils.SetConfigValue(ref source, ref value, ref series, "series");
             DataUtils.SetConfigValue(ref source, ref value, ref knack, "knack");
             DataUtils.SetConfigValue(ref source, ref value, ref fatal, "fatal");
