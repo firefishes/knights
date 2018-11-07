@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanCache: 1
-  isUpdateFromSteamming: 0
-  isDebugResVersion: 0
-  m_IsDebugDependences: 0
   m_LoadedAssetNames: []
+  m_AssetItemPrefabRaw: {fileID: 114778201283288702, guid: 96c51ed9165434116a95ac9ded4487e7,
+    type: 2}
+  m_AssetInfos: []
