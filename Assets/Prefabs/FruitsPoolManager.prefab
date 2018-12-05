@@ -9,50 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1982823834404130}
+  m_RootGameObject: {fileID: 1611590790975132}
   m_IsPrefabParent: 1
---- !u!1 &1982823834404130
+--- !u!1 &1611590790975132
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4241297490843394}
-  - component: {fileID: 114738675657702322}
+  - component: {fileID: 4706613868308314}
+  - component: {fileID: 114771180999220312}
   m_Layer: 0
-  m_Name: KnightsAssetsManager
+  m_Name: FruitsPoolManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4241297490843394
+--- !u!4 &4706613868308314
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1982823834404130}
+  m_GameObject: {fileID: 1611590790975132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5076.51, y: 5.2021604, z: 5031.7417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114738675657702322
+--- !u!114 &114771180999220312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1982823834404130}
+  m_GameObject: {fileID: 1611590790975132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b76ae05072c28fc4085189d9c258566a, type: 3}
+  m_Script: {fileID: 11500000, guid: d918a03f9ecf59645a08febc179e4bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanCache: 1
-  m_LoadedAssetNames: []
-  m_AssetItemPrefabRaw: {fileID: 114778201283288702, guid: 96c51ed9165434116a95ac9ded4487e7,
-    type: 2}
-  m_AssetInfos: []

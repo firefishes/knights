@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 114092310605481034}
   - component: {fileID: 114724636598985590}
   m_Layer: 0
-  m_Name: KnightsStartUp
+  m_Name: FruitsStartUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SoundList: []
+  m_IsAddSoundsInAwake: 0
 --- !u!114 &114741411228451788
 MonoBehaviour:
   m_ObjectHideFlags: 1

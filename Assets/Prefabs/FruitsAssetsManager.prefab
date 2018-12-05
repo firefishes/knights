@@ -9,52 +9,50 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1516292117129384}
+  m_RootGameObject: {fileID: 1982823834404130}
   m_IsPrefabParent: 1
---- !u!1 &1516292117129384
+--- !u!1 &1982823834404130
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4835900884529544}
-  - component: {fileID: 114758474671216130}
+  - component: {fileID: 4241297490843394}
+  - component: {fileID: 114738675657702322}
   m_Layer: 0
-  m_Name: KnightData
+  m_Name: FruitsAssetsManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4835900884529544
+--- !u!4 &4241297490843394
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516292117129384}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 1982823834404130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114758474671216130
+--- !u!114 &114738675657702322
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516292117129384}
+  m_GameObject: {fileID: 1982823834404130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da8b0a7ca8945c44a93946d96160b0b5, type: 3}
+  m_Script: {fileID: 11500000, guid: b76ae05072c28fc4085189d9c258566a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BaseData: {fileID: 11400000, guid: e2600bf2fb55cb54583083e69245c7f1, type: 2}
-  m_MeansData: {fileID: 11400000, guid: cc28d18c9c04dd44ca9d7ed66285924d, type: 2}
-  m_AttainmentsData: {fileID: 11400000, guid: 1cf73b5c3d396694fb1ffc6082c02ee5, type: 2}
-  m_AttainmentsMaxData: {fileID: 11400000, guid: f907553595913884586e48e6200895d8,
+  m_CanCache: 1
+  m_LoadedAssetNames: []
+  m_AssetItemPrefabRaw: {fileID: 114778201283288702, guid: 96c51ed9165434116a95ac9ded4487e7,
     type: 2}
-  m_MeridianData: {fileID: 11400000, guid: 02576d12ec26dce438864b7243e80e29, type: 2}
-  m_BattleData: {fileID: 11400000, guid: 08b8c4999a5607b479892f50c77d4e5c, type: 2}
+  m_AssetInfos: []
