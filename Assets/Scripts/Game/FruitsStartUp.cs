@@ -2,7 +2,7 @@
 using ShipDock.Framework.AppointerIOC.IOC;
 using UnityEngine;
 
-namespace Knights.Game
+namespace FF.Game
 {
     public class FruitsStartUp : GameStartUpComponent
     {
@@ -16,7 +16,7 @@ namespace Knights.Game
 
         private void OnIOCReady()
         {
-            Debug.Log("fsdfasd");
+            Debug.Log("Game start up");
         }
     }
 
