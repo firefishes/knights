@@ -7,6 +7,7 @@ namespace FF.Game
 {
     public class Consts
     {
+        public const int FSM_FRUIT_MAIN_ROLE = 6000;
     }
 
 }
