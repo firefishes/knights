@@ -1,14 +1,10 @@
 ﻿using ShipDock.Framework.AppointerIOC.IOC;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 using ShipDock.Framework.Interfaces;
 using ShipDock.Framework.ObjectPool;
 using ShipDock.Framework.Cores.Notices;
 using ShipDock.Framework.RPG.Components;
 using ShipDock.Framewrok.Managers;
-using ShipDock.Framework.Tools;
 using ShipDock.Framework.Finess.ECS;
 using ShipDock.Framework.Containers;
 
@@ -24,17 +20,17 @@ namespace FF.Game
         {
             base.Start();
 
-            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainCharacterControllerNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
-            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainRoleAgentNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
+            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>(string.Empty, Pooling<ParamNotice<EntitasComponentKey>>.Instance);
+            //Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainRoleAgentNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
         }
 
         public override void Finish()
         {
             base.Finish();
 
-            SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainCharacterController, "GetMainCharacterControllerNotice");
+            SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainCharacterController);
             SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainRoleAgentComponent, "GetMainRoleAgentNotice");
-            SetAppoint<IValueHolder<Vector3>>(this, MainRoleWalk, "GetV3Notice");
+            SetAppoint<IValueHolder<Vector3>>(this, MainRoleWalk);
         }
 
         private void SetMainRoleAgentComponent<I>(ref I target)
@@ -74,15 +70,15 @@ namespace FF.Game
 
         private void SetMainCharacterController<I>(ref I target)
         {
-            EntitasComponentKey key = (target as IValueHolder<EntitasComponentKey>).GetValue();
-            MainRoleComponent component = GetEntitasComponent<MainRoleComponent>(ref key);
+            //EntitasComponentKey key = (target as IValueHolder<EntitasComponentKey>).GetValue();
+            //MainRoleComponent component = GetEntitasComponent<MainRoleComponent>(ref key);
             //mMainRoleComponent = (target as IValueHolder<MainRoleComponent>).GetValue();
 
-            RoleAgentComponent agentComponent = GetEntitasComponent<RoleAgentComponent>(ref mMainRoleAgentComponentKey);
-            component.characterController = agentComponent.characterController;
+            //RoleAgentComponent agentComponent = GetEntitasComponent<RoleAgentComponent>(ref mMainRoleAgentComponentKey);
+            //component.characterController = agentComponent.characterController;
 
-            FruitsMainRoleFSM fsm = new FruitsMainRoleFSM();
-            fsm.Run(null, FruitMainRoleStateName.STATE_IDLE);
+            //FruitsMainRoleFSM fsm = new FruitsMainRoleFSM();
+            //fsm.Run(null, FruitMainRoleStateName.STATE_IDLE);
         }
 
         public T GetEntitasComponent<T>(ref EntitasComponentKey key) where T : IEntitasComponent
