@@ -20,15 +20,15 @@ namespace FF.Game
         {
             base.Start();
 
-            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>(string.Empty, Pooling<ParamNotice<EntitasComponentKey>>.Instance);
-            //Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainRoleAgentNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
+            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainCharacterControllerNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
+            Register<ParamNotice<EntitasComponentKey>, IValueHolder<EntitasComponentKey>>("GetMainRoleAgentNotice", Pooling<ParamNotice<EntitasComponentKey>>.Instance);
         }
 
         public override void Finish()
         {
             base.Finish();
 
-            SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainCharacterController);
+            SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainCharacterController, "GetMainCharacterControllerNotice");
             SetAppoint<IValueHolder<EntitasComponentKey>>(this, SetMainRoleAgentComponent, "GetMainRoleAgentNotice");
             SetAppoint<IValueHolder<Vector3>>(this, MainRoleWalk);
         }
@@ -70,6 +70,7 @@ namespace FF.Game
 
         private void SetMainCharacterController<I>(ref I target)
         {
+            var t = target;
             //EntitasComponentKey key = (target as IValueHolder<EntitasComponentKey>).GetValue();
             //MainRoleComponent component = GetEntitasComponent<MainRoleComponent>(ref key);
             //mMainRoleComponent = (target as IValueHolder<MainRoleComponent>).GetValue();
