@@ -70,7 +70,6 @@ namespace FF.Game
 
         private void SetMainCharacterController<I>(ref I target)
         {
-            var t = target;
             //EntitasComponentKey key = (target as IValueHolder<EntitasComponentKey>).GetValue();
             //MainRoleComponent component = GetEntitasComponent<MainRoleComponent>(ref key);
             //mMainRoleComponent = (target as IValueHolder<MainRoleComponent>).GetValue();
