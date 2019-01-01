@@ -8,29 +8,32 @@ namespace FF.Game
     public class MainRoleWalkState : AnimatorState
     {
 
-        private RoleMover mRoleMover;
+        private RolePolicyer mRolePolicyer;
 
         public MainRoleWalkState(int name) : base(name)
         {
-            mRoleMover = new RoleMover();
-            mRoleMover.IsMainRole = true;
         }
 
         public override void UpdateState(float dTime)
         {
             base.UpdateState(dTime);
 
-            mRoleMover.UpdateLog();
+            if (mRolePolicyer == null)
+            {
+                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+            }
 
-            if (mRoleMover.IsStanding)
+            mRolePolicyer.UpdateLog();
+
+            if (mRolePolicyer.IsStanding)
             {
                 ChangeToState(FruitMainRoleStateName.STATE_IDLE);
             }
             else
             {
-                Vector3 moveMent = mRoleMover.Movement;
+                Vector3 moveMent = mRolePolicyer.Movement;
                 IOCManager.Emit("MainRoleWalk", moveMent, "GetV3Notice");
-                if (mRoleMover.IsRun)
+                if (mRolePolicyer.IsRun)
                 {
                     ChangeToState(FruitMainRoleStateName.STATE_RUN);
                 }

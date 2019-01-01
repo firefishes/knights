@@ -14,6 +14,7 @@ namespace FF.Game
         {
             IOCManager.Add(new ComponentsContainer());
             IOCManager.Add(new MainRoleContainer());
+            IOCManager.Add(new RolePolicyerContainer());
         }
 
         public override void Start()

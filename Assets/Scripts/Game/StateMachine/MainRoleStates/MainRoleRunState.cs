@@ -8,21 +8,24 @@ namespace FF.Game
     public class MainRoleRunState : AnimatorState
     {
 
-        private RoleMover mRoleMover;
+        private RolePolicyer mRolePolicyer;
 
         public MainRoleRunState(int name) : base(name)
         {
-            mRoleMover = new RoleMover();
-            mRoleMover.IsMainRole = true;
         }
 
         public override void UpdateState(float dTime)
         {
             base.UpdateState(dTime);
 
-            if(mRoleMover.IsRun)
+            if (mRolePolicyer == null)
             {
-                Vector3 moveMent = mRoleMover.Movement;
+                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+            }
+
+            if (mRolePolicyer.IsRun)
+            {
+                Vector3 moveMent = mRolePolicyer.Movement;
                 IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
             }
             else

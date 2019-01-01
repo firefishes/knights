@@ -1,11 +1,10 @@
 ﻿using ShipDock.Framework.Applications.RPG;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using ShipDock.Framework.Interfaces;
+using ShipDock.Framework.Applications.RPG.Components;
 
 namespace FF.Game
 {
+
     public class FruitMainRoleStateName
     {
 
@@ -15,11 +14,18 @@ namespace FF.Game
         public const int STATE_NOR_ATK = 3;
     }
 
-    public class FruitsMainRoleFSM : RoleStateMachine
+    public class FruitsMainRoleFSM : RoleStateMachine, IPoliciableFSM
     {
 
-        public FruitsMainRoleFSM() : base(Consts.FSM_FRUIT_MAIN_ROLE)
+        private IState[] mStateInfos;
+        private RoleComponent mRole;
+        private RoleAgentComponent mRoleAgent;
+        private RolePolicyer mRolePolicyer;
+
+        public FruitsMainRoleFSM(RoleComponent role, RoleAgentComponent roleAgent) : base(Consts.FSM_FRUIT_MAIN_ROLE)
         {
+            mRole = role;
+            mRoleAgent = roleAgent;
         }
 
         public override int DefaultState
@@ -34,15 +40,49 @@ namespace FF.Game
         {
             get
             {
-                return new IState[]
+                if (mStateInfos == null)
                 {
-                    new MainRoleIdleState(FruitMainRoleStateName.STATE_IDLE),
-                    new MainRoleRunState(FruitMainRoleStateName.STATE_RUN),
-                    new MainRoleWalkState(FruitMainRoleStateName.STATE_WALK),
-                    new MainRoleNormalAtkState(FruitMainRoleStateName.STATE_NOR_ATK),
-                };
+                    mStateInfos = new IState[]
+                    {
+                        new MainRoleIdleState(FruitMainRoleStateName.STATE_IDLE),
+                        new MainRoleRunState(FruitMainRoleStateName.STATE_RUN),
+                        new MainRoleWalkState(FruitMainRoleStateName.STATE_WALK),
+                        new MainRoleNormalAtkState(FruitMainRoleStateName.STATE_NOR_ATK),
+                    };
+                }
+                return mStateInfos;
             }
         }
+
+        public RolePolicyer RolePolicyer
+        {
+            get
+            {
+                if(mRolePolicyer == null)
+                {
+                    mRolePolicyer = new RolePolicyer(this);
+                    mRolePolicyer.IsMainRole = true;
+                }
+                return mRolePolicyer;
+            }
+        }
+
+        public RoleComponent RoleComp
+        {
+            get
+            {
+                return mRole;
+            }
+        }
+
+        public RoleAgentComponent RoleAgentComp
+        {
+            get
+            {
+                return mRoleAgent;
+            }
+        }
+
     }
 
 }

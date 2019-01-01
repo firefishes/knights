@@ -96,7 +96,7 @@ namespace FF.Game
                 mRoleAgentTF = mMainRoleAgentComponent.cachedTF;
             }
 
-            FruitsMainRoleFSM fsm = new FruitsMainRoleFSM();
+            FruitsMainRoleFSM fsm = new FruitsMainRoleFSM(mMainRoleComponent, mMainRoleAgentComponent);
             fsm.Run(null, FruitMainRoleStateName.STATE_IDLE);
 
             GameUpdaterManager.Instance.Add(OnMainRoleFaceingMovement);
