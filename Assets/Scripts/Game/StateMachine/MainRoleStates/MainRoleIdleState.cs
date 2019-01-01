@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using ShipDock.Framework.StateMachines.States;
 using ShipDock.Framework.Interfaces;
+using ShipDock.Framework.Applications.RPG.Components;
 
 namespace FF.Game
 {
     public class MainRoleIdleState : AnimatorState
     {
+        private RoleMover mRoleMover;
+
         public MainRoleIdleState(int name) : base(name)
         {
             mAnimationName = "Grounded";
+            mRoleMover = new RoleMover();
+            mRoleMover.IsMainRole = true;
         }
 
         public override void InitState(IStateParam param = null)
@@ -18,23 +23,24 @@ namespace FF.Game
             base.InitState(param);
 
             PlayAnimation();
+
+            mRoleMover.Inputer.ResetRunKeyCheck();
         }
 
         public override void UpdateState(float dTime)
         {
             base.UpdateState(dTime);
-
-            if (Movement.magnitude > 0)
+            
+            if (!mRoleMover.IsStanding)
             {
-                ChangeToState(FruitMainRoleStateName.STATE_WALK);
-            }
-        }
-
-        public Vector3 Movement
-        {
-            get
-            {
-                return new Vector3(Input.GetAxis("Vertical"), 0, Input.GetAxis("Horizontal"));
+                if(mRoleMover.Inputer.canCheckRun && mRoleMover.IsRun)
+                {
+                    ChangeToState(FruitMainRoleStateName.STATE_RUN);
+                }
+                else if(!mRoleMover.Inputer.canCheckRun)
+                {
+                    ChangeToState(FruitMainRoleStateName.STATE_WALK);
+                }
             }
         }
     }

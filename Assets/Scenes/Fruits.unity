@@ -261,7 +261,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 193474762}
-  m_LocalRotation: {x: 0.06649023, y: -0.0020183607, z: 0.00013449181, w: 0.99778503}
+  m_LocalRotation: {x: 0.066490255, y: -0.0020087396, z: 0.00013385118, w: 0.9977851}
   m_LocalPosition: {x: -18.360003, y: 5.42, z: -29.982506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -733,7 +733,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256649248}
-  m_LocalRotation: {x: 0.06649023, y: -0.0020183607, z: 0.00013449181, w: 0.99778503}
+  m_LocalRotation: {x: 0.066490255, y: -0.0020087396, z: 0.00013385118, w: 0.9977851}
   m_LocalPosition: {x: -18.360003, y: 5.42, z: -29.982506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -763,12 +763,12 @@ MonoBehaviour:
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=1.0.2.28736,
+    m_TypeName: Cinemachine.CinemachineBrain+BrainEvent, Assembly-CSharp, Version=1.0.2.5923,
       Culture=neutral, PublicKeyToken=null
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=1.0.2.28736,
+    m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=1.0.2.5923,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1499039997
 GameObject:

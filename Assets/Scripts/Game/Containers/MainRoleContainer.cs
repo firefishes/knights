@@ -3,19 +3,19 @@ using UnityEngine;
 using ShipDock.Framework.Interfaces;
 using ShipDock.Framework.ObjectPool;
 using ShipDock.Framework.Cores.Notices;
-using ShipDock.Framework.RPG.Components;
 using ShipDock.Framewrok.Managers;
 using ShipDock.Framework.Finess.ECS;
 using ShipDock.Framework.Containers;
+using ShipDock.Framework.Applications.RPG.Components;
 
 namespace FF.Game
 {
     public class MainRoleContainer : ContainerIOC, IEntitasSystem
     {
-        MainRoleComponent mMainRoleComponent;
-        RoleAgentComponent mMainRoleAgentComponent;
         Transform mMainRoleTF;
         Transform mRoleAgentTF;
+        MainRoleComponent mMainRoleComponent;
+        RoleAgentComponent mMainRoleAgentComponent;
         private int mMainRoleComponentKey;
         private int mMainRoleAgentComponentKey;
 
@@ -34,6 +34,19 @@ namespace FF.Game
             SetAppoint<IValueHolder<int>>(this, SetMainCharacterController, "GetMainCharacterControllerNotice");
             SetAppoint<IValueHolder<int>>(this, SetMainRoleAgentComponent, "GetMainRoleAgentNotice");
             SetAppoint<IValueHolder<Vector3>>(this, MainRoleWalk);
+            SetAppoint<IValueHolder<Vector3>>(this, MainRoleRun);
+        }
+
+        private void MainRoleRun<I>(ref I target)
+        {
+            Vector3 v = (target as IValueHolder<Vector3>).GetValue();
+            mMainRoleAgentComponent.faceToMovement = v;
+            mMainRoleComponent.characterController.SimpleMove(v * 50);
+
+            if (!mMainRoleAgentComponent.isNeedCheckRoleFaceTo)
+            {
+                mMainRoleAgentComponent.isNeedCheckRoleFaceTo = true;
+            }
         }
 
         private void SetMainRoleAgentComponent<I>(ref I target)
