@@ -45,6 +45,10 @@ namespace FF.Game
                     ChangeToState(FruitMainRoleStateName.STATE_WALK);
                 }
             }
+            else
+            {
+                mAnimator.SetFloat("Forward", 0);// 0.1f, Time.deltaTime);
+            }
         }
     }
 

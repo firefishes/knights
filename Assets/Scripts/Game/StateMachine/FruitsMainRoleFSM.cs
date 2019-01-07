@@ -22,7 +22,7 @@ namespace FF.Game
         private RoleAgentComponent mRoleAgent;
         private RolePolicyer mRolePolicyer;
 
-        public FruitsMainRoleFSM(RoleComponent role, RoleAgentComponent roleAgent) : base(Consts.FSM_FRUIT_MAIN_ROLE)
+        public FruitsMainRoleFSM(RoleComponent role, RoleAgentComponent roleAgent) : base(ref role.roleAnimator, Consts.FSM_FRUIT_MAIN_ROLE, role.transform)
         {
             mRole = role;
             mRoleAgent = roleAgent;

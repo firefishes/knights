@@ -6,6 +6,8 @@ using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framework.Components;
 using ShipDock.Framework.Loaders;
 using UnityEngine;
+using ShipDock.Framework.Managers;
+using ShipDock.Framework.Applications.RPG.Components;
 
 namespace FF.Game
 {
@@ -24,6 +26,8 @@ namespace FF.Game
 
         private void ResLoaded(SimpleLoader obj)
         {
+            AssetBundlesManager.Instance.AddSystemPrefab<RolePolicyerComponent>("RolePolicyerEntity", "RolePolicyerEntity", false, RPGConsts.AB_MAIN_ENTITAS, "RolePolicyerEntity");
+
             IOCManager.AddContainersReady(OnIOCReady);
             IOCManager.Add(new ComunicationsIOC());
             IOCManager.Add(new GameContainer());

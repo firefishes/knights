@@ -7,6 +7,7 @@ using ShipDock.Framewrok.Managers;
 using ShipDock.Framework.Finess.ECS;
 using ShipDock.Framework.Containers;
 using ShipDock.Framework.Applications.RPG.Components;
+using ShipDock.Framework.Applications.RPG.Inputer;
 
 namespace FF.Game
 {
@@ -41,7 +42,7 @@ namespace FF.Game
         {
             Vector3 v = (target as IValueHolder<Vector3>).GetValue();
             mMainRoleAgentComponent.faceToMovement = v;
-            mMainRoleComponent.characterController.SimpleMove(v * 50);
+            mMainRoleComponent.characterController.SimpleMove(v * mMainRoleAgentComponent.SpeedRun);
 
             if (!mMainRoleAgentComponent.isNeedCheckRoleFaceTo)
             {
@@ -58,7 +59,7 @@ namespace FF.Game
         {
             Vector3 v = (target as IValueHolder<Vector3>).GetValue();
             mMainRoleAgentComponent.faceToMovement = v;
-            mMainRoleComponent.characterController.SimpleMove(v * 15);
+            mMainRoleComponent.characterController.SimpleMove(v * mMainRoleAgentComponent.SpeedWalk);
 
             if (!mMainRoleAgentComponent.isNeedCheckRoleFaceTo)
             {
@@ -72,7 +73,7 @@ namespace FF.Game
             {
                 return;
             }
-            mMainRoleTF.LookAt(mRoleAgentTF.position + mMainRoleAgentComponent.faceToMovement);
+            mMainRoleTF.LookAt(mMainRoleTF.position + mMainRoleAgentComponent.faceToMovement);
             if (Mathf.Abs(mMainRoleTF.rotation.y - mRoleAgentTF.rotation.y) <= 1)
             {
                 mMainRoleAgentComponent.isNeedCheckRoleFaceTo = false;
@@ -85,7 +86,7 @@ namespace FF.Game
             mMainRoleComponent = GetEntitasComponent<MainRoleComponent>(mMainRoleComponentKey);
 
             mMainRoleAgentComponent = GetEntitasComponent<RoleAgentComponent>(mMainRoleAgentComponentKey);
-            mMainRoleComponent.characterController = mMainRoleAgentComponent.characterController;
+            //mMainRoleComponent.characterController = mMainRoleAgentComponent.characterController;
 
             if (mMainRoleTF == null)
             {

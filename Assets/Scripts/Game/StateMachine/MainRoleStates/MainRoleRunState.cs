@@ -23,15 +23,30 @@ namespace FF.Game
                 mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
             }
 
-            if (mRolePolicyer.IsRun)
-            {
-                Vector3 moveMent = mRolePolicyer.Movement;
-                IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
-            }
-            else
+            Vector3 moveMent = mRolePolicyer.Movement;
+            IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
+            mAnimator.SetFloat("Forward", 1, 0.1f, Time.deltaTime);
+            if (!mRolePolicyer.IsRun)
             {
                 ChangeToState(FruitMainRoleStateName.STATE_IDLE);
             }
+            //float z = 0;
+            //if (mRolePolicyer.Inputer.IsRight())
+            //{
+            //    z = moveMent.x;
+            //}
+            //else if (mRolePolicyer.Inputer.IsLeft())
+            //{
+            //    z = -moveMent.x;
+            //}
+            //else if (mRolePolicyer.Inputer.IsUp())
+            //{
+            //    z = moveMent.z;
+            //}
+            //else if (mRolePolicyer.Inputer.IsDown())
+            //{
+            //    z = -moveMent.z;
+            //}
         }
     }
 
