@@ -32,15 +32,17 @@ namespace FF.Game
             {
                 mPrivStateName = FruitMainRoleStateName.STATE_IDLE;
             }
-            raw = GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale;
-            GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale = new Vector3(raw.x, raw.y, raw.z * 3);
+            mAnimator.SetBool("Crouch", true);
+            //raw = GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale;
+            //GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale = new Vector3(raw.x, raw.y, raw.z * 3);
             FramesTimer timer = new FramesTimer(0.2f);
             timer.Start(OnAtkEnd);
         }
 
         private void OnAtkEnd()
         {
-            GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale = raw;
+            mAnimator.SetBool("Crouch", false);
+            //GetFSM<FruitsMainRoleFSM>().RoleComp.cachedTF.localScale = raw;
             ChangeToState(mPrivStateName);
         }
     }

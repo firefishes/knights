@@ -60,7 +60,7 @@ namespace FF.Game
             {
                 if(mRolePolicyer == null)
                 {
-                    mRolePolicyer = new RolePolicyer(this);
+                    mRolePolicyer = new RolePolicyer(this, "player1");
                     mRolePolicyer.IsMainRole = true;
                 }
                 return mRolePolicyer;

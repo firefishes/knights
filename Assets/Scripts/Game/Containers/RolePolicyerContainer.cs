@@ -1,9 +1,6 @@
 ﻿using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framewrok.Managers;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System;
 using ShipDock.Framework.Containers;
 using ShipDock.Framework.Applications.RPG.Components;
 using ShipDock.Framework.Finess.ECS;
@@ -30,7 +27,7 @@ namespace FF.Game
 
         private void UpdatePolicyer(int obj)
         {
-            mList = ComponentAppointer.GetComponets<IEntitasComponent>("RolePoilcyerComponent");
+            mList = ComponentAppointer.GetComponents("RolePoilcyerComponent");
             if(mList == null)
             {
                 return;
