@@ -26,7 +26,9 @@ namespace FF.Game
 
         private void ResLoaded(SimpleLoader obj)
         {
-            AssetBundlesManager.Instance.AddSystemPrefab<RolePolicyerComponent>("RolePolicyerEntity", "RolePolicyerEntity", false, RPGConsts.AB_MAIN_ENTITAS, "RolePolicyerEntity");
+            AssetBundlesManager manager = AssetBundlesManager.Instance;
+            manager.AddSystemPrefab<RolePolicyerComponent>("RolePolicyerEntity", "RolePolicyerEntity", false, RPGConsts.AB_MAIN_ENTITAS, "RolePolicyerEntity");
+            manager.AddSystemPrefab<RolePolicyerComponent>("EntitasEmpty", "EntitasItem", false, RPGConsts.AB_MAIN_ENTITAS, "EntitasItem");
 
             IOCManager.AddContainersReady(OnIOCReady);
             IOCManager.Add(new ComunicationsIOC());

@@ -1,9 +1,9 @@
 ﻿using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framewrok.Managers;
 using System.Collections.Generic;
-using ShipDock.Framework.Containers;
 using ShipDock.Framework.Applications.RPG.Components;
 using ShipDock.Framework.Finess.ECS;
+using ShipDock.Framework.Finess.ECS.Containers;
 
 namespace FF.Game
 {
@@ -27,7 +27,7 @@ namespace FF.Game
 
         private void UpdatePolicyer(int obj)
         {
-            mList = ComponentAppointer.GetComponents("RolePoilcyerComponent");
+            mList = FinessECS.GetComponents("RolePoilcyerComponent");
             if(mList == null)
             {
                 return;

@@ -1,9 +1,5 @@
 ﻿using ShipDock.Framework.AppointerIOC.IOC;
-using ShipDock.Framework.Containers;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+using ShipDock.Framework.Finess.ECS.Containers;
 
 namespace FF.Game
 {
@@ -12,8 +8,9 @@ namespace FF.Game
 
         public GameContainer()
         {
+            IOCManager.Add(new RoleContainer());
+            IOCManager.Add(new SystemContainer());
             IOCManager.Add(new ComponentsContainer());
-            IOCManager.Add(new MainRoleContainer());
             IOCManager.Add(new RolePolicyerContainer());
         }
 
