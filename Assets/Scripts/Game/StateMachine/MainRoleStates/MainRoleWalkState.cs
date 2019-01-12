@@ -1,5 +1,4 @@
 ﻿using ShipDock.Framework.Applications.RPG.Components;
-using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framework.Interfaces;
 using ShipDock.Framework.StateMachines.States;
 using UnityEngine;
@@ -10,6 +9,7 @@ namespace FF.Game
     {
 
         private RolePolicyer mRolePolicyer;
+        private RoleAgentComponent mRoleAgent;
 
         public MainRoleWalkState(int name) : base(name)
         {
@@ -39,7 +39,14 @@ namespace FF.Game
             else
             {
                 Vector3 moveMent = mRolePolicyer.Movement;
-                IOCManager.Emit("MainRoleWalk", moveMent, "GetV3Notice");
+
+                if(mRoleAgent == null)
+                {
+                    mRoleAgent = GetFSM<IPoliciableFSM>().RoleAgentComp;
+                }
+                mRoleAgent.currentSpeed = mRoleAgent.speedWalk;
+                mRoleAgent.faceToMovement = moveMent;
+                //IOCManager.Emit("MainRoleWalk", moveMent, "GetV3Notice");
                 if (mRolePolicyer.IsRun)
                 {
                     ChangeToState(FruitMainRoleStateName.STATE_RUN);

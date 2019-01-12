@@ -2671,7 +2671,9 @@ MonoBehaviour:
   roleAnimator: {fileID: 95347726619246928}
   roleCollider: {fileID: 0}
   characterController: {fileID: 143492449863494202}
+  roleAgent: {fileID: 114949506402037896}
   cachedTF: {fileID: 0}
+  m_CameraFollowContainer: {fileID: 448028}
 --- !u!114 &114678317324970042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2697,7 +2699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b220b81833119c4c81eebfc8bdca929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainRole: 0
+  isMainRole: 1
   isNeedCheckRoleFaceTo: 0
   speedRun: 3
   speedWalk: 1

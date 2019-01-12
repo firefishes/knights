@@ -1,5 +1,4 @@
 ﻿using ShipDock.Framework.Applications.RPG.Components;
-using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framework.StateMachines.States;
 using UnityEngine;
 
@@ -9,6 +8,7 @@ namespace FF.Game
     {
 
         private RolePolicyer mRolePolicyer;
+        private RoleAgentComponent mRoleAgent;
 
         public MainRoleRunState(int name) : base(name)
         {
@@ -24,7 +24,15 @@ namespace FF.Game
             }
 
             Vector3 moveMent = mRolePolicyer.Movement;
-            IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
+
+            if (mRoleAgent == null)
+            {
+                mRoleAgent = GetFSM<IPoliciableFSM>().RoleAgentComp;
+            }
+            mRoleAgent.currentSpeed = mRoleAgent.speedRun;
+            mRoleAgent.faceToMovement = moveMent;
+
+            //IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
             mAnimator.SetFloat("Forward", 1, 0.1f, Time.deltaTime);
             if (!mRolePolicyer.IsRun)
             {

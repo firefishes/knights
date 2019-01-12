@@ -8,6 +8,8 @@ using ShipDock.Framework.Loaders;
 using UnityEngine;
 using ShipDock.Framework.Managers;
 using ShipDock.Framework.Applications.RPG.Components;
+using ShipDock.Framework.Interfaces;
+using ShipDock.Framework.AppointerIOC.Attributes;
 
 namespace FF.Game
 {
@@ -20,6 +22,7 @@ namespace FF.Game
             SimpleLoader loader = new SimpleLoader() { IsAutoRelease = true };
             loader.AddLoad(GameLoadType.LOAD_TYPE_MANIFEST, CoreConsts.AB_MANIFEST);
             loader.AddLoad(GameLoadType.LOAD_TYPE_AB, RPGConsts.AB_MAIN_ENTITAS);
+            loader.AddLoad(GameLoadType.LOAD_TYPE_AB, Consts.AB_MAIN_ROLES);
             loader.OnLoaded += ResLoaded;
             loader.StartLoad();
         }
@@ -30,16 +33,17 @@ namespace FF.Game
             manager.AddSystemPrefab<RolePolicyerComponent>("RolePolicyerEntity", "RolePolicyerEntity", false, RPGConsts.AB_MAIN_ENTITAS, "RolePolicyerEntity");
             manager.AddSystemPrefab<RolePolicyerComponent>("EntitasEmpty", "EntitasItem", false, RPGConsts.AB_MAIN_ENTITAS, "EntitasItem");
 
-            IOCManager.AddContainersReady(OnIOCReady);
+            IOCManager.AddContainersReady(OnContainersReady);
             IOCManager.Add(new ComunicationsIOC());
             IOCManager.Add(new GameContainer());
         }
 
-        private void OnIOCReady()
+        private void OnContainersReady()
         {
             Debug.Log("Game start up");
 
-            App.SendNotice(RPGConsts.MAIN_ROLE_PREFAB_LOADED);
+            GameObject mainRoleRaw = AssetBundlesManager.Instance.GetAsset(Consts.AB_MAIN_ROLES, "Role");
+            GameObjectPoolManager.Instance.FromPool(Consts.POOL_MAIN_ROLE, ref mainRoleRaw);
         }
     }
 

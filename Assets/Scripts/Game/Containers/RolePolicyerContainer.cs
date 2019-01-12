@@ -7,7 +7,7 @@ using ShipDock.Framework.Finess.ECS.Containers;
 
 namespace FF.Game
 {
-    public class RolePolicyerContainer : ContainerIOC
+    public class RolePolicyerContainer : ContainerIOC, IEntitasSystem
     {
         private RolePolicyer mRolePolicyer;
         private List<IEntitasComponent> mList;
@@ -22,13 +22,14 @@ namespace FF.Game
         {
             base.Finish();
 
-            GameUpdaterManager.Instance.Add(UpdatePolicyer);
+            IsActive = true;
+            FinessECS.AddSystem(this);
         }
 
-        private void UpdatePolicyer(int obj)
+        public void OnExecute(ref IEntitasSystem system, int time)
         {
             mList = FinessECS.GetComponents("RolePoilcyerComponent");
-            if(mList == null)
+            if (mList == null)
             {
                 return;
             }
@@ -38,14 +39,26 @@ namespace FF.Game
                 mRolePolicyer = mList[i] as RolePolicyer;
                 if (mRolePolicyer != null)
                 {
-                    if(mRolePolicyer.IsMainRole)
+                    if (mRolePolicyer.IsMainRole)
                     {
-                        if(mRolePolicyer.Inputer.IsNomalAttack)
+                        if (mRolePolicyer.Inputer.IsNomalAttack)
                         {
                             mRolePolicyer.PoliciableFSM.ChangeState(FruitMainRoleStateName.STATE_NOR_ATK);
                         }
                     }
                 }
+            }
+        }
+
+        public bool IsActive { get; set; }
+
+        public bool IsChanged { get; set; }
+
+        public string EntitasSystemName
+        {
+            get
+            {
+                return "RolePolicyerSystem";
             }
         }
     }

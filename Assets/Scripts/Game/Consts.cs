@@ -8,6 +8,10 @@ namespace FF.Game
     public class Consts
     {
         public const int FSM_FRUIT_MAIN_ROLE = 6000;
+
+        public const string AB_MAIN_ROLES = "roles/mainroles.ab";
+
+        public const int POOL_MAIN_ROLE = 1;
     }
 
 }

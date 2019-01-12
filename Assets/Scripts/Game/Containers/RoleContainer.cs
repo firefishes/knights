@@ -38,10 +38,13 @@ namespace FF.Game
         {
             base.Finish();
 
-            SetAppoint<IValueHolder<int>>(this, SetMainCharacterController, "GetMainCharacterControllerNotice");
-            SetAppoint<IValueHolder<int>>(this, SetMainRoleAgentComponent, "GetMainRoleAgentNotice");
+            //SetAppoint<IValueHolder<int>>(this, SetMainCharacterController, "GetMainCharacterControllerNotice");
+            //SetAppoint<IValueHolder<int>>(this, SetMainRoleAgentComponent, "GetMainRoleAgentNotice");
             //SetAppoint<IValueHolder<Vector3>>(this, MainRoleWalk);
             //SetAppoint<IValueHolder<Vector3>>(this, MainRoleRun);
+
+            IsActive = true;
+            FinessECS.AddSystem(this);
         }
 
         //private void MainRoleRun<I>(ref I target)
@@ -147,24 +150,22 @@ namespace FF.Game
                 if(IsChanged)
                 {
                     mRoles = FinessECS.GetComponents("RoleComponent");
-                    mRoleAgents = FinessECS.GetComponents("RoleAgentComponent");
 
-                    if(mRoles == null || mRoleAgents == null)
-                    {
-                        return;
-                    }
+                    
                 }
-
-                int max = mRoles.Count;
-                for (int i = 0; i < max; i++)
+                if (mRoles != null)
                 {
-                    mRoleAgent = mRoleAgents[i] as RoleAgentComponent;
-                    if(mRoleAgent.currentSpeed != 0)
+                    int max = mRoles.Count;
+                    for (int i = 0; i < max; i++)
                     {
                         mRole = mRoles[i] as RoleComponent;
-                        RoleMove(ref mRoleAgent, ref mRole, mRoleAgent.faceToMovement * mRoleAgent.currentSpeed);
+                        mRoleAgent = mRole.roleAgent;
+                        if(mRoleAgent.currentSpeed != 0)
+                        {
+                            RoleMove(ref mRoleAgent, ref mRole, mRoleAgent.faceToMovement * mRoleAgent.currentSpeed);
+                        }
+                        UpdateRoleFacing(ref mRoleAgent, ref mRole.cachedTF);
                     }
-                    UpdateRoleFacing(ref mRoleAgent, ref mRole.cachedTF);
                 }
             }
         }
