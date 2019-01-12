@@ -31,30 +31,12 @@ namespace FF.Game
             }
             mRoleAgent.currentSpeed = mRoleAgent.speedRun;
             mRoleAgent.faceToMovement = moveMent;
-
-            //IOCManager.Emit("MainRoleRun", moveMent, "GetV3Notice");
+            
             mAnimator.SetFloat("Forward", 1, 0.1f, Time.deltaTime);
             if (!mRolePolicyer.IsRun)
             {
                 ChangeToState(FruitMainRoleStateName.STATE_IDLE);
             }
-            //float z = 0;
-            //if (mRolePolicyer.Inputer.IsRight())
-            //{
-            //    z = moveMent.x;
-            //}
-            //else if (mRolePolicyer.Inputer.IsLeft())
-            //{
-            //    z = -moveMent.x;
-            //}
-            //else if (mRolePolicyer.Inputer.IsUp())
-            //{
-            //    z = moveMent.z;
-            //}
-            //else if (mRolePolicyer.Inputer.IsDown())
-            //{
-            //    z = -moveMent.z;
-            //}
         }
     }
 

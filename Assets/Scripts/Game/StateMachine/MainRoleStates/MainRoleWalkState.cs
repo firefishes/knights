@@ -13,7 +13,6 @@ namespace FF.Game
 
         public MainRoleWalkState(int name) : base(name)
         {
-            //mAnimator.SetFloat()
         }
 
         public override void InitState(IStateParam param = null)
@@ -46,30 +45,12 @@ namespace FF.Game
                 }
                 mRoleAgent.currentSpeed = mRoleAgent.speedWalk;
                 mRoleAgent.faceToMovement = moveMent;
-                //IOCManager.Emit("MainRoleWalk", moveMent, "GetV3Notice");
                 if (mRolePolicyer.IsRun)
                 {
                     ChangeToState(FruitMainRoleStateName.STATE_RUN);
                 }
                 else
                 {
-                    //float z = 0;
-                    //if(mRolePolicyer.Inputer.IsRight())
-                    //{
-                    //    z = moveMent.x;
-                    //}
-                    //else if(mRolePolicyer.Inputer.IsLeft())
-                    //{
-                    //    z = -moveMent.x;
-                    //}
-                    //else if (mRolePolicyer.Inputer.IsUp())
-                    //{
-                    //    z = moveMent.z;
-                    //}
-                    //else if (mRolePolicyer.Inputer.IsDown())
-                    //{
-                    //    z = -moveMent.z;
-                    //}
                     mAnimator.SetFloat("Forward", 0.5f, 0.1f, Time.deltaTime);
                 }
             }

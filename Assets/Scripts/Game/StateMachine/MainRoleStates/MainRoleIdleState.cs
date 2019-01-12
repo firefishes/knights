@@ -47,7 +47,7 @@ namespace FF.Game
             }
             else
             {
-                mAnimator.SetFloat("Forward", 0);// 0.1f, Time.deltaTime);
+                mAnimator.SetFloat("Forward", 0);
             }
         }
     }
