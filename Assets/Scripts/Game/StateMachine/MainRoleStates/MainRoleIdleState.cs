@@ -22,7 +22,7 @@ namespace FF.Game
 
             if(mRolePolicyer == null)
             {
-                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+                mRolePolicyer = GetFSM<FruitsRoleFSM>().RolePolicyer;
             }
 
             PlayAnimation();
@@ -38,11 +38,11 @@ namespace FF.Game
             {
                 if(mRolePolicyer.Inputer.canCheckRun && mRolePolicyer.IsRun)
                 {
-                    ChangeToState(FruitMainRoleStateName.STATE_RUN);
+                    ChangeToState(FruitRoleStateName.STATE_RUN);
                 }
                 else if(!mRolePolicyer.Inputer.canCheckRun)
                 {
-                    ChangeToState(FruitMainRoleStateName.STATE_WALK);
+                    ChangeToState(FruitRoleStateName.STATE_WALK);
                 }
             }
             else

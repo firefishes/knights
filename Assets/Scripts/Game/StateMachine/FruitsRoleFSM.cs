@@ -5,7 +5,7 @@ using ShipDock.Framework.Applications.RPG.Components;
 namespace FF.Game
 {
 
-    public class FruitMainRoleStateName
+    public class FruitRoleStateName
     {
 
         public const int STATE_IDLE = 0;
@@ -14,25 +14,27 @@ namespace FF.Game
         public const int STATE_NOR_ATK = 3;
     }
 
-    public class FruitsMainRoleFSM : RoleStateMachine, IPoliciableFSM
+    public class FruitsRoleFSM : RoleStateMachine, IPoliciableFSM
     {
 
         private IState[] mStateInfos;
         private RoleComponent mRole;
         private RoleAgentComponent mRoleAgent;
         private RolePolicyer mRolePolicyer;
+        private string mPolicyerSearchName;
 
-        public FruitsMainRoleFSM(RoleComponent role, RoleAgentComponent roleAgent) : base(ref role.roleAnimator, Consts.FSM_FRUIT_MAIN_ROLE, role.transform)
+        public FruitsRoleFSM(string policyerSearchName, RoleComponent role, RoleAgentComponent roleAgent) : base(ref role.roleAnimator, Consts.FSM_FRUIT_MAIN_ROLE, role.transform)
         {
             mRole = role;
             mRoleAgent = roleAgent;
+            mPolicyerSearchName = policyerSearchName;
         }
 
         public override int DefaultState
         {
             get
             {
-                return FruitMainRoleStateName.STATE_IDLE;
+                return FruitRoleStateName.STATE_IDLE;
             }
         }
 
@@ -44,10 +46,10 @@ namespace FF.Game
                 {
                     mStateInfos = new IState[]
                     {
-                        new MainRoleIdleState(FruitMainRoleStateName.STATE_IDLE),
-                        new MainRoleRunState(FruitMainRoleStateName.STATE_RUN),
-                        new MainRoleWalkState(FruitMainRoleStateName.STATE_WALK),
-                        new MainRoleNormalAtkState(FruitMainRoleStateName.STATE_NOR_ATK),
+                        new MainRoleIdleState(FruitRoleStateName.STATE_IDLE),
+                        new MainRoleRunState(FruitRoleStateName.STATE_RUN),
+                        new MainRoleWalkState(FruitRoleStateName.STATE_WALK),
+                        new MainRoleNormalAtkState(FruitRoleStateName.STATE_NOR_ATK),
                     };
                 }
                 return mStateInfos;
@@ -60,8 +62,8 @@ namespace FF.Game
             {
                 if(mRolePolicyer == null)
                 {
-                    mRolePolicyer = new RolePolicyer(this, "player1");
-                    mRolePolicyer.IsMainRole = true;
+                    mRolePolicyer = new RolePolicyer(this, mPolicyerSearchName);
+                    mRolePolicyer.IsMainRole = mRoleAgent.isMainRole;
                 }
                 return mRolePolicyer;
             }

@@ -43,7 +43,7 @@ namespace FF.Game
                     {
                         if (mRolePolicyer.Inputer.IsNomalAttack)
                         {
-                            mRolePolicyer.PoliciableFSM.ChangeState(FruitMainRoleStateName.STATE_NOR_ATK);
+                            mRolePolicyer.PoliciableFSM.ChangeState(FruitRoleStateName.STATE_NOR_ATK);
                         }
                     }
                 }

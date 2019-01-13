@@ -16,6 +16,8 @@ namespace FF.Game
         [SerializeField]
         private string m_SearchName;
         [SerializeField]
+        private string m_PolicyerSearchName;
+        [SerializeField]
         private RoleComponent m_RoleComponent;
         [SerializeField]
         private RoleAgentComponent m_RoleAgentComponent;
@@ -27,12 +29,9 @@ namespace FF.Game
 
         private void OnContainersReady()
         {
-            if(m_RoleAgentComponent.isMainRole)
-            {
-                IStateMachine FSM = new FruitsMainRoleFSM(m_RoleComponent, m_RoleAgentComponent);
-                FSMComponent comp = new FSMComponent(FSM, m_SearchName, true);
-                FinessECS.CreateEntitas("EntitasEmpty", comp);
-            }
+            IStateMachine FSM = new FruitsRoleFSM(m_PolicyerSearchName, m_RoleComponent, m_RoleAgentComponent);
+            FSMComponent comp = new FSMComponent(FSM, m_SearchName, true);
+            FinessECS.CreateEntitas("EntitasEmpty", comp);
         }
     }
 

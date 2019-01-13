@@ -20,7 +20,7 @@ namespace FF.Game
 
             if (mRolePolicyer == null)
             {
-                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+                mRolePolicyer = GetFSM<FruitsRoleFSM>().RolePolicyer;
             }
 
             Vector3 moveMent = mRolePolicyer.Movement;
@@ -35,7 +35,7 @@ namespace FF.Game
             mAnimator.SetFloat("Forward", 1, 0.1f, Time.deltaTime);
             if (!mRolePolicyer.IsRun)
             {
-                ChangeToState(FruitMainRoleStateName.STATE_IDLE);
+                ChangeToState(FruitRoleStateName.STATE_IDLE);
             }
         }
     }

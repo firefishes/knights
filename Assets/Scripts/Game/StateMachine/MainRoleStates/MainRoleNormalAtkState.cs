@@ -25,12 +25,12 @@ namespace FF.Game
 
             if (mRolePolicyer == null)
             {
-                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+                mRolePolicyer = GetFSM<FruitsRoleFSM>().RolePolicyer;
             }
-            mPrivStateName = GetFSM<FruitsMainRoleFSM>().Previous.StateName;
+            mPrivStateName = GetFSM<FruitsRoleFSM>().Previous.StateName;
             if(mPrivStateName == StateName)
             {
-                mPrivStateName = FruitMainRoleStateName.STATE_IDLE;
+                mPrivStateName = FruitRoleStateName.STATE_IDLE;
             }
             mAnimator.SetBool("Crouch", true);
             FramesTimer timer = new FramesTimer(0.2f);

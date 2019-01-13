@@ -12,6 +12,7 @@ namespace FF.Game
         public const string AB_MAIN_ROLES = "roles/mainroles.ab";
 
         public const int POOL_MAIN_ROLE = 1;
+        public const int POOL_ENEMY_ROLE_1 = 2;
     }
 
 }

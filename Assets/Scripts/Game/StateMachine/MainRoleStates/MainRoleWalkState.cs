@@ -26,14 +26,14 @@ namespace FF.Game
 
             if (mRolePolicyer == null)
             {
-                mRolePolicyer = GetFSM<FruitsMainRoleFSM>().RolePolicyer;
+                mRolePolicyer = GetFSM<FruitsRoleFSM>().RolePolicyer;
             }
 
             mRolePolicyer.UpdateLog();
 
             if (mRolePolicyer.IsStanding)
             {
-                ChangeToState(FruitMainRoleStateName.STATE_IDLE);
+                ChangeToState(FruitRoleStateName.STATE_IDLE);
             }
             else
             {
@@ -47,7 +47,7 @@ namespace FF.Game
                 mRoleAgent.faceToMovement = moveMent;
                 if (mRolePolicyer.IsRun)
                 {
-                    ChangeToState(FruitMainRoleStateName.STATE_RUN);
+                    ChangeToState(FruitRoleStateName.STATE_RUN);
                 }
                 else
                 {

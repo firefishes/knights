@@ -657,10 +657,10 @@ GameObject:
   - component: {fileID: 143492449863494202}
   - component: {fileID: 95347726619246928}
   - component: {fileID: 114949506402037896}
-  - component: {fileID: 114546848871352352}
+  - component: {fileID: 114046847523460530}
   - component: {fileID: 114678317324970042}
   m_Layer: 0
-  m_Name: Role
+  m_Name: RoleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2652,7 +2652,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114546848871352352
+--- !u!114 &114046847523460530
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2663,15 +2663,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ba1aa834681f24392af6965efaf879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainRole: 1
+  isMainRole: 0
   roleRigidBody: {fileID: 0}
   RoleContainer: {fileID: 408730}
   roleAnimator: {fileID: 95347726619246928}
   roleCollider: {fileID: 0}
   characterController: {fileID: 143492449863494202}
   roleAgent: {fileID: 114949506402037896}
-  m_SearchName: MainRoleComponent
-  m_CameraFollowContainer: {fileID: 448028}
+  m_SearchName: EnemyRole1Component
+  m_CameraFollowContainer: {fileID: 0}
   cachedTF: {fileID: 0}
 --- !u!114 &114678317324970042
 MonoBehaviour:
@@ -2684,9 +2684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d35106abc616e84fa8a1a3beb7161ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SearchName: PlayerFSM1
-  m_PolicyerSearchName: player1
-  m_RoleComponent: {fileID: 114546848871352352}
+  m_SearchName: EnemyFSM1
+  m_PolicyerSearchName: Enemy1
+  m_RoleComponent: {fileID: 114046847523460530}
   m_RoleAgentComponent: {fileID: 114949506402037896}
 --- !u!114 &114949506402037896
 MonoBehaviour:
@@ -2699,12 +2699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b220b81833119c4c81eebfc8bdca929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMainRole: 1
+  isMainRole: 0
   isNeedCheckRoleFaceTo: 0
   speedRun: 3
   speedWalk: 1
   faceToMovement: {x: 0, y: 0, z: 0}
-  searchName: PlayerRole1
+  searchName: EnemyRole1
   currentSpeed: 0
   cachedTF: {fileID: 0}
 --- !u!143 &143492449863494202
