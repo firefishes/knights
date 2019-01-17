@@ -18,16 +18,18 @@ namespace FF.Game
         public override void InitState(IStateParam param = null)
         {
             base.InitState(param);
-        }
-
-        public override void UpdateState(float dTime)
-        {
-            base.UpdateState(dTime);
 
             if (mRolePolicyer == null)
             {
                 mRolePolicyer = GetFSM<FruitsRoleFSM>().RolePolicyer;
             }
+
+            mRolePolicyer.Inputer.runKeyComboTime = 0;
+        }
+
+        public override void UpdateState(float dTime)
+        {
+            base.UpdateState(dTime);
 
             mRolePolicyer.UpdateLog();
 

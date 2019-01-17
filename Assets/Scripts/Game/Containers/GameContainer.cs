@@ -11,6 +11,7 @@ namespace FF.Game
         {
             IOCManager.Add(new SystemContainer());
             IOCManager.Add(new ComponentsContainer());
+            IOCManager.Add(new RoleInputerSystemContainer());
             IOCManager.Add(new FSMContainer());
             IOCManager.Add(new RoleContainer());
             IOCManager.Add(new RolePolicyerContainer());

@@ -26,8 +26,6 @@ namespace FF.Game
             }
 
             PlayAnimation();
-
-            mRolePolicyer.Inputer.ResetRunKeyCheck();
         }
 
         public override void UpdateState(float dTime)
@@ -36,11 +34,11 @@ namespace FF.Game
             
             if (!mRolePolicyer.IsStanding)
             {
-                if(mRolePolicyer.Inputer.canCheckRun && mRolePolicyer.IsRun)
+                if(mRolePolicyer.Inputer.isRun)
                 {
                     ChangeToState(FruitRoleStateName.STATE_RUN);
                 }
-                else if(!mRolePolicyer.Inputer.canCheckRun)
+                else
                 {
                     ChangeToState(FruitRoleStateName.STATE_WALK);
                 }
