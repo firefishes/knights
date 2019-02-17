@@ -68,7 +68,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4681483070777254}
   - component: {fileID: 114092310605481034}
-  - component: {fileID: 114724636598985590}
   m_Layer: 0
   m_Name: FruitsStartUp
   m_TagString: Untagged
@@ -288,13 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CanCache: 1
-  IsDebug: 0
-  DebugText: {fileID: 0}
-  memText: {fileID: 0}
-  MaxLogLine: 10
-  FrameRate: 0
-  Local: 
-  clientConfig: {fileID: 0}
+  frameRate: 0
+  local: 
+  debugHUDPrefab: {fileID: 1756528223024316, guid: 627bfa011d2d746a7937e897282566e3,
+    type: 2}
 --- !u!114 &114258928305947606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,19 +317,6 @@ MonoBehaviour:
   m_Controller: {fileID: 114816012969793890}
   m_SoundPrefab: {fileID: 114699295461210162, guid: 5346aea03b8f64a769e942a027358db1,
     type: 2}
---- !u!114 &114724636598985590
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581836477416832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ea726332d944140b3433de30ff9320, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SoundList: []
-  m_IsAddSoundsInAwake: 0
 --- !u!114 &114741411228451788
 MonoBehaviour:
   m_ObjectHideFlags: 1
