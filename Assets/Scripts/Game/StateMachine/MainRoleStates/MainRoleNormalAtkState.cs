@@ -6,6 +6,7 @@ using ShipDock.Framework.Interfaces;
 using ShipDock.Framework.Applications.RPG.Components;
 using ShipDock.Framework.Tools;
 using System;
+using ShipDock.Framework.Applications.RPG.Containers;
 
 namespace FF.Game
 {
@@ -39,6 +40,7 @@ namespace FF.Game
 
         private void OnAtkEnd()
         {
+            RoleInputer.Instance.IsNomalAttack = false;
             mAnimator.SetBool("Crouch", false);
             ChangeToState(mPrivStateName);
         }
