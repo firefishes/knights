@@ -1,7 +1,6 @@
 ﻿using ShipDock.Framework.Applications.RPG.Components;
 using ShipDock.Framework.AppointerIOC.IOC;
 using ShipDock.Framework.Finess.ECS.Components;
-using ShipDock.Framework.Finess.ECS.Containers;
 using ShipDock.Framework.Interfaces;
 using UnityEngine;
 
@@ -28,7 +27,7 @@ namespace FF.Game
         {
             IStateMachine FSM = new FruitsRoleFSM(m_PolicyerSearchName, m_RoleComponent, m_RoleAgentComponent);
             FSMComponent comp = new FSMComponent(FSM, m_SearchName, true);
-            FinessECS.CreateEntitas("EntitasEmpty", null, comp);
+            FinessECS.UpdateEntitas("EntitasEmpty", null, comp);
         }
     }
 
