@@ -23,7 +23,7 @@ namespace FF.Game
         private RolePolicyer mRolePolicyer;
         private string mPolicyerSearchName;
 
-        public FruitsRoleFSM(string policyerSearchName, RoleComponent role, RoleAgentComponent roleAgent) : base(ref role.roleAnimator, Consts.FSM_FRUIT_MAIN_ROLE, role.transform)
+        public FruitsRoleFSM(int FSMName, string policyerSearchName, RoleComponent role, RoleAgentComponent roleAgent) : base(ref role.roleAnimator, FSMName, role.transform)
         {
             mRole = role;
             mRoleAgent = roleAgent;
