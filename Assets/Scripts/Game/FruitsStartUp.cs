@@ -1,5 +1,4 @@
-﻿using System;
-using ShipDock.Framework;
+﻿using ShipDock.Framework;
 using ShipDock.Framework.Applications;
 using ShipDock.Framework.Applications.RPG;
 using ShipDock.Framework.AppointerIOC.IOC;
@@ -8,9 +7,8 @@ using ShipDock.Framework.Loaders;
 using UnityEngine;
 using ShipDock.Framework.Managers;
 using ShipDock.Framework.Applications.RPG.Components;
-using ShipDock.Framework.Interfaces;
-using ShipDock.Framework.AppointerIOC.Attributes;
 using ShipDock.Framework.Finess.ECS.Components;
+using ShipDock.Framework.Finess.ECS.Containers;
 
 namespace FF.Game
 {
@@ -36,6 +34,8 @@ namespace FF.Game
 
             IOCManager.AddContainersReady(OnContainersReady);
             IOCManager.Add(new ComunicationsIOC());
+            IOCManager.Add(new ComponentsContainer());
+            IOCManager.Add(new SystemContainer());
             IOCManager.Add(new GameContainer());
         }
 
